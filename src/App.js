@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Container, Dropdown, Grid, Header, Message } from "semantic-ui-react";
+import { Container, Dropdown, Grid, Header, Input, Message } from "semantic-ui-react";
 
 function App() {
   const options = [
     { key: 'en', text: 'English', value: 'en' },
     { key: 'pt', text: 'Português', value: 'pt' },
   ]
+  const [name, setName] = useState('');
   const { t, i18n } = useTranslation();
 
   return (
@@ -17,13 +19,18 @@ function App() {
         <Grid.Row columns={2}>
           <Grid.Column>
             <Dropdown
-              placeholder="Language"
               search
               value={i18n.language}
               selection
               options={options}
-              onChange={(_, data) => i18n.changeLanguage(data.value)}
+              onChange={(_, data) => {
+                i18n.changeLanguage(data.value)
+              }}
             />
+          </Grid.Column>
+
+          <Grid.Column>
+            <Input type="text" onChange={(_, data) => setName(data.value)}/>
           </Grid.Column>
         </Grid.Row>
 
@@ -32,7 +39,7 @@ function App() {
             <Message>
               <Message.Header>{t("header")}</Message.Header>
               <p>
-                {t("message")}
+                {t("message", {name})}
               </p>
             </Message>
           </Grid.Column>

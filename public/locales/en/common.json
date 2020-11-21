@@ -2,5 +2,5 @@
     "title": "React-i18next - Example",
     "button": "Change",
     "header": "Message",
-    "message": "Hello, World!"
+    "message": "Hello, {{name}}!"
 }
