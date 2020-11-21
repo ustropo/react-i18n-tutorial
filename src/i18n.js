@@ -1,6 +1,10 @@
 import i18n from 'i18next';
 import HttpApi from 'i18next-http-backend';
-import {initReactI18next} from 'react-i18next';
+import dateFnsFormat from 'date-fns/format';
+import { ptBR, enUS } from 'date-fns/locale';
+import { initReactI18next } from 'react-i18next';
+
+const locales = {'pt': ptBR, 'en': enUS};
 
 i18n
   // load translations using http
@@ -15,7 +19,19 @@ i18n
     fallbackLng: 'en',
     debug: true,
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
+      escapeValue: false, // not needed for react as it escapes by default,
+      format: function (value, fmt, lng) {
+        if (!value || value === '' || value === undefined || value === null) {
+          return ''
+        }
+
+        // format = date|mask
+        const [type, mask] = fmt.split('|')
+        if (type === 'date') {
+          return dateFnsFormat(value, mask, {locale: locales[lng]})
+        }
+        return value;
+      }
     },
     backend: {
       overrideMimeType: true

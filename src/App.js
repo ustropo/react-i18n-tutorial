@@ -39,7 +39,7 @@ function App() {
             <Message>
               <Message.Header>{t("header")}</Message.Header>
               <p>
-                {t("message", {name})}
+                {t("message", {name, date: new Date()})}
               </p>
             </Message>
           </Grid.Column>

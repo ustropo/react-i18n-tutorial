@@ -2,5 +2,5 @@
     "title": "React-i18next - Exemplo",
     "button": "Mudar",
     "header": "Mensagem",
-    "message": "Olá, {{name}}!"
+    "message": "Olá, {{name}}! Hoje é {{date, date|eee, dd MMM yyyy}}"
 }
