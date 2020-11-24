@@ -24,4 +24,4 @@ Access `http://localhost:3000/` and you will see the application.
 
 ## Article
 
-This tutorial was made as a part of this article.
+This tutorial was made as a part of this [article](https://medium.com/javascript-in-plain-english/how-to-internationalize-your-react-app-with-i18next-5e8ee9c85a2e?source=friends_link&sk=c5a1e5d44ecbc9cbbf4ad16f2cb8b2ae).
